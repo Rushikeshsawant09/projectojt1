@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Pearl</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="container nav-container">
+
+        <!-- Logo -->
+        <a href="#" class="logo">Black Pearl<span>.</span></a>
+
+        <!-- Navigation links -->
+        <ul class="nav-list">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">Our Story</a></li>
+            <li><a href="#menu" class="nav-link">Menu</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+            <a href="#contact" class="btn btn-sm primary">Book a Table</a>
+
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= MAIN ================= -->
+<main>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+            <span class="hero-badge">Est. 1880</span>
+
+            <h1 class="hero-title">
+                Authentic Taste,<br>
+                Fresh Food
+            </h1>
+
+            <p class="hero-subtitle">
+               “Crafted with love, served with warmth, remembered forever.”
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#menu" class="btn primary">Explore Menu</a>
+                <a href="#about" class="btn outline">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-grid">
+
+                <!-- Image -->
+                <div class="about-image-wrapper">
+                    <img 
+                    src="https://cdn.pixabay.com/photo/2016/02/10/13/35/hotel-1191718_1280.jpg"
+
+
+                        alt="Exquisite Dish"
+                        class="main-img"
+                    >
+
+                    <div class="experience-badge">
+                        <span class="num">15+</span>
+                        <span class="txt">Years of<br>Excellence</span>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="about-text">
+                    <span class="sub-heading">An Elevated Dining Experience</span>
+                    <h2 class="section-title">A Story Told Through Flavor</h2>
+
+                    <p>
+                        Every dish is meticulously crafted using the finest ingredients for an elevated dining experience.
+                    </p>
+
+                    <p>
+                        Located at the heart of Kolhapur, where refined service meets an inviting ambiance.
+                    </p>
+
+                    <a href="#menu" class="btn-text">
+                       Taste What We’re Known For <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+            <!-- MENU SECTION -->
+    <section>
+            
+             <section id="menu" class="section-light">
+                <div class="container">
+                
+                <!-- SECTION HEADER -->
+                 <div class="section-header">
+                <span class="sub-heading">Foodie Pie</span>
+                <h2 class="section-title">From Our Kitchen</h2>
+                </div>
+
+                <!-- SEARCH INPUT -->
+                 <div class="menu-search">
+                    <input type="text" id="searchInput" placeholder="Search dishes" aria-label="Search menu" />
+                    
+                 </div>
+
+                <!-- CATEGORY FILTERS -->
+                 <div cass="filter-group">
+                    <button class="filter-btn active" data-category="all">All Dishes</button>    
+                    <button class="filter-btn" data-category="starter">Starters</button>
+                    <button class="filter-btn" data-category="main">Main Course</button>
+                    <button class="filter-btn" data-category="dessert">Desserts</button>
+
+                </div>
+
+                <!-- MENU ITEMS CONTAINER(JS RENDERS HERE) -->
+                    <div class="menu-grid" id="menuContainer"></div>
+            </div>
+                </section>
+            </main>
+
+</body>
+</html>
