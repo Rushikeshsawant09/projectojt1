@@ -1,0 +1,166 @@
+[
+  {
+    "id": 1,
+    "name": "Chocolate Truffle Balls",
+    "category": "dessert",
+    "price": 230,
+    "description": "Moist chocolate sponge layered with silky chocolate ganache.",
+    "image": "https://media.istockphoto.com/id/1494766888/photo/chocolate-truffles.webp?a=1&b=1&s=612x612&w=0&k=20&c=Y-vz9vD0PMTq4IkSvRJhYQtpds_1YYgEkC1WcFNeGzM="
+  },
+  {
+    "id": 2,
+    "name": "Chocolate Brown Cupcakes",
+    "category": "dessert",
+    "price": 210,
+    "description": "Italian-style creamy dessert topped with fresh strawberry coulis.",
+    "image": "https://images.unsplash.com/photo-1612203985729-70726954388c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRlc3NlcnRzfGVufDB8fDB8fHww"
+  }, 
+  {
+    "id": 3,
+    "name": "Chocolate Fudge Brownie",
+    "category": "dessert",
+    "price": 170,
+    "description": "Dense chocolate brownie served warm with chocolate sauce.",
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c"
+  },
+  {
+    "id": 4,
+    "name": "Chocolate Lava Cake",
+    "category": "dessert",
+    "price": 220,
+    "description": "Warm chocolate cake with a rich molten , served with vanilla ice cream.",
+    "image": "https://images.unsplash.com/photo-1617305855058-336d24456869?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 5,
+    "name": "Belgian Waffle Delight",
+    "category": "dessert",
+    "price": 240,
+    "description": "Crispy golden waffle topped with whipped cream and chocolate drizzle.",
+    "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d"
+  },
+  {
+    "id": 6,
+    "name": "Red Velvet Pastry",
+    "category": "dessert",
+    "price": 190,
+    "description": "Soft red velvet sponge layered with smooth cream cheese frosting.",
+    "image": "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7"
+  },
+  {
+    "id": 7,
+    "name": "Gulab Jamun",
+    "category": "dessert",
+    "price": 260,
+    "description": "Italian coffee-flavored dessert with mascarpone and cocoa dusting.",
+    "image": "https://media.istockphoto.com/id/668147754/photo/gulab-jamun.webp?a=1&b=1&s=612x612&w=0&k=20&c=_plWK0nqVneGKy0BsOIkh7_WkF_7aesBxJ7V331eWpw="
+  },
+  {
+    "id": 8,
+    "name": "New York Cheesecake",
+    "category": "dessert",
+    "price": 280,
+    "description": "Rich and creamy cheesecake with a buttery biscuit base.",
+    "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187"
+  },
+ 
+  {
+    "id": 9,
+    "name": "Doughnuts",
+    "category": "dessert",
+    "price": 140,
+    "description": "Silky smooth caramel pudding with a golden caramel glaze.",
+    "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGVzc2VydHxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": 10,
+    "name": "Special Kulfi",
+    "category": "dessert",
+    "price": 120,
+    "description": "Soft muffin loaded with juicy blueberries and vanilla aroma.",
+    "image": "https://media.istockphoto.com/id/657073780/photo/rajwari-or-rajwadi-sweet-kesar-badam-pista-kulfi-or-ice-cream-candy.webp?a=1&b=1&s=612x612&w=0&k=20&c=D4gZyAdK340jjnX8KGhXaflZISqBkmdd9Od0wTmQi1U="
+  },
+  
+  
+
+  {
+    "id": 11,
+    "name": "Classic Craffe",
+    "category": "beverage",
+    "price": 160,
+    "description": "Chilled coffee blended with milk and creamy foam.",
+    "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmV2ZXJhZ2V8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 12,
+    "name": "Iced Caramel Latte",
+    "category": "beverage",
+    "price": 190,
+    "description": "Smooth espresso with chilled milk and caramel syrup.",
+    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c"
+  },
+  {
+    "id": 13,
+    "name": "Hot Chocolate",
+    "category": "beverage",
+    "price": 180,
+    "description": "Rich and creamy hot chocolate topped with cocoa dust.",
+    "image": "https://images.unsplash.com/photo-1707219811253-b4197a022ffa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGhvdCUyMGNob2NvbGF0ZXxlbnwwfHwwfHx8MA%3D%3D1"
+  },
+  {
+    "id": 14,
+    "name": "Fresh berry shake",
+    "category": "beverage",
+    "price": 170,
+    "description": "Thick shake made with fresh strawberries and ice cream.",
+    "image": "https://images.unsplash.com/photo-1641893754790-99d96ac55745?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJlcnJ5JTIwc2hha2V8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 15,
+    "name": "Mango Smoothie",
+    "category": "beverage",
+    "price": 160,
+    "description": "Refreshing smoothie made from ripe mangoes and yogurt.",
+    "image": "https://images.unsplash.com/photo-1697642452436-9c40773cbcbb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fE1hbmdvJTIwU21vb3RoaWV8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 16,
+    "name": "Classic Cappuccino",
+    "category": "beverage",
+    "price": 150,
+    "description": "Perfectly brewed coffee topped with steamed milk foam.",
+    "image": "https://images.unsplash.com/photo-1588410885838-169620ac6966?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fENsYXNzaWMlMjBDYXBwdWNjaW5vfGVufDB8fDB8fHww"
+  },
+  {
+    "id": 17,
+    "name": "Lemon Mint Cooler",
+    "category": "beverage",
+    "price": 130,
+    "description": "Refreshing lemon drink infused with fresh mint leaves.",
+    "image": "https://media.istockphoto.com/id/1096491634/photo/close-up-of-refreshing-mint-and-lemon-cooler-in-a-transparent-glass-on-wooden-surface-with.webp?a=1&b=1&s=612x612&w=0&k=20&c=cBkVBMznI0L1jOA8mGNdc6bgkFqa6RA5bS4kuNSFOBk="
+  },
+  {
+    "id": 18,
+    "name": "Chocolate Shake",
+    "category": "beverage",
+    "price": 200,
+    "description": "Creamy chocolate shake made with premium cocoa.",
+    "image": "https://plus.unsplash.com/premium_photo-1695750679004-ac1bef3acb62?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Q2hvY29sYXRlJTIwU2hha2V8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 19,
+    "name": "Vanilla Iced Latte",
+    "category": "beverage",
+    "price": 180,
+    "description": "Cold espresso with vanilla syrup and chilled milk.",
+    "image": "https://plus.unsplash.com/premium_photo-1723759448747-1d174225e61f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VmFuaWxsYSUyMEljZWQlMjBMYXR0ZXxlbnwwfHwwfHx8MA%3D%3D5"
+  },
+  {
+    "id": 20,
+    "name": "Fresh melon Juice",
+    "category": "beverage",
+    "price": 120,
+    "description": "Freshly squeezed watermelon juice served chilled.",
+    "image": "https://media.istockphoto.com/id/1225801090/photo/watermelon-juice.webp?a=1&b=1&s=612x612&w=0&k=20&c=oFCLm1A56KSejDWTxUd3_64NL7MqWLG-lMqJo82xEgc="
+  }
+]
