@@ -4,34 +4,34 @@
    - Easy to maintain and update the design consistently
    ========================================================= */
 :root {
-    /* Primary brand colors */
-    --primary: #e24f1c;
-    --primary-light: #f07a4a;
-    --secondary: #d99b49;
+    /* Primary brand colors - Ice cream inspired palette */
+    --primary: #FF6B9D;
+    --primary-light: #FFB5D5;
+    --secondary: #9D5CFF;
 
     /* Text colors */
-    --text-main: #333333;
-    --text-light: #555555;
+    --text-main: #2D1B3D;
+    --text-light: #6B5A7C;
 
     /* Background colors */
-    --bg-light: #fafafa;
-    --bg-section: #f7f7f7;
+    --bg-light: #FFF8FC;
+    --bg-section: #FFF0F7;
 
     /* Neutral colors */
     --white: #ffffff;
-    --dark: #1f1f1f;
+    --dark: #2D1B3D;
 
-    /* Shadows for depth */
-    --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
-    --shadow-md: 0 12px 30px rgba(0,0,0,0.12);
+    /* Shadows for depth - softer, more colorful */
+    --shadow-sm: 0 4px 20px rgba(255, 107, 157, 0.15);
+    --shadow-md: 0 12px 40px rgba(157, 92, 255, 0.2);
 
     /* Accent helpers */
     --accent-strong: var(--primary);
     --accent-soft: var(--secondary);
-    --accent-muted: rgba(226, 79, 28, 0.15);
+    --accent-muted: rgba(255, 107, 157, 0.12);
 
     /* Animation & layout helpers */
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     --container-width: 1200px;
 }
 
@@ -56,7 +56,9 @@ body {
     font-family: 'Inter', sans-serif;
     color: var(--text-main);
     line-height: 1.7;
-    background-color: var(--bg-light);
+    background: linear-gradient(180deg, #FFF8FC 0%, #FFF0F7 30%, #FFE5F0 60%, #FFEEF5 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 html, body {
@@ -128,15 +130,25 @@ h3 {
 
 /* Fixed navigation bar with glass effect */
 .navbar {
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(15px);
+    background: linear-gradient(135deg, 
+        rgba(255, 248, 252, 0.95) 0%, 
+        rgba(255, 240, 247, 0.92) 50%,
+        rgba(255, 235, 245, 0.95) 100%
+    );
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
     padding: 1.2rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: var(--transition);
+    border-bottom: 2px solid rgba(255, 107, 157, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(255, 107, 157, 0.15), 
+        0 4px 16px rgba(157, 92, 255, 0.1),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+    animation: slideInTop 0.8s ease-out;
 }
 
 /* Navbar layout */
@@ -151,6 +163,7 @@ h3 {
     font-size: 2rem;
     font-family: 'Playfair Display', serif;
     font-weight: 800;
+    animation: slideInLeft 0.8s ease-out;
 }
 
 /* Highlight part of logo */
@@ -173,7 +186,15 @@ h3 {
     color: var(--text-main);
     transition: var(--transition);
     position: relative;
+    opacity: 0;
+    animation: slideInTop 0.5s ease-out forwards;
 }
+
+/* Stagger nav link animations */
+.nav-link:nth-child(1) { animation-delay: 0.1s; }
+.nav-link:nth-child(2) { animation-delay: 0.2s; }
+.nav-link:nth-child(3) { animation-delay: 0.3s; }
+.nav-link:nth-child(4) { animation-delay: 0.4s; }
 
 /* Underline animation on hover */
 .nav-link::after {
@@ -183,7 +204,7 @@ h3 {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary);
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
     transition: var(--transition);
 }
 
@@ -202,6 +223,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  animation: slideInRight 0.8s ease-out;
 }
 
 /* Small button inside navbar */
@@ -225,20 +247,23 @@ h3 {
   height: 42px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: rgba(226, 79, 28, 0.08);
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(157, 92, 255, 0.15));
   cursor: pointer;
   transition: var(--transition);
+  animation: float 3s ease-in-out infinite;
 }
 
 /* Cart icon font */
 .cart-icon i {
   font-size: 1.1rem;
   color: var(--primary);
+  transition: var(--transition);
 }
 
 /* Cart hover background */
 .cart-icon:hover {
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  transform: scale(1.1) rotate(5deg);
 }
 
 /* Cart hover icon color */
@@ -251,7 +276,7 @@ h3 {
   position: absolute;
   top: -4px;
   right: -4px;
-  background: var(--primary);
+  background: linear-gradient(135deg, #FF6B9D, #FF8CAD);
   color: #fff;
   font-size: 11px;
   font-weight: 600;
@@ -262,7 +287,8 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(226, 79, 28, 0.5);
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.5);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 /* Mobile menu button - hidden by default (desktop) */
@@ -285,7 +311,7 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+    background-image: linear-gradient(rgba(255, 107, 157, 0.3), rgba(157, 92, 255, 0.3)), 
                       url("https://media.istockphoto.com/id/1922618743/photo/assorted-of-scoops-ice-cream-colorful-set-of-ice-cream-of-different-flavours-side-view-of-ice.webp?a=1&b=1&s=612x612&w=0&k=20&c=hoOCdvvboaoJkWLpLjMIWN4PXYxuH13drHVSjzagVpo=");
     background-position: center;
     background-size: cover;
@@ -302,7 +328,7 @@ h3 {
     left: 0; 
     width: 100%; 
     height: 100%;
-    background: rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(157, 92, 255, 0.2));
 }
 
 /* Hero content stays above overlay */
@@ -311,33 +337,52 @@ h3 {
     z-index: 2;
 }
 
+.hero-content > * {
+    animation-fill-mode: both;
+}
+
 /* Small highlighted badge shown above hero heading */
 .hero-badge {
-    background: var(--accent-soft); /* soft accent background */
-    color: var(--dark);             /* dark text for contrast */
-    padding: 6px 16px;
-    border-radius: 50px;            /* pill shape */
+    background: linear-gradient(135deg, #FFD6E8, #E8D4FF);
+    color: var(--dark);
+    padding: 8px 20px;
+    border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
     display: inline-block;
+    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.3);
+    animation: float 3s ease-in-out infinite, zoomIn 0.6s ease-out 0.2s;
+    animation-fill-mode: both;
 }
 
 /* Main hero heading */
 .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 5rem); /* responsive font size */
+    font-size: clamp(3rem, 8vw, 5rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: var(--white);
+    color: #FFE5F0;
+    text-shadow: 0 4px 20px rgba(157, 92, 255, 0.6), 0 2px 10px rgba(255, 107, 157, 0.4);
+    animation: slideInBottom 0.8s ease-out 0.4s;
+    animation-fill-mode: both;
 }
 
 /* Hero description text */
 .hero-subtitle {
     font-size: 1.1rem;
-    max-width: 700px;               /* limits text width for readability */
+    max-width: 700px;
     margin: 0 auto 2.5rem;
-    opacity: 0.85;                  /* slightly muted text */
+    opacity: 1;
+    color: #FFF5F9;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.8s ease-out 0.6s;
+    animation-fill-mode: both;
+}
+
+.hero-content .btn {
+    animation: slideInBottom 0.8s ease-out 0.8s;
+    animation-fill-mode: both;
 }
 
 /* =========================================================
@@ -347,7 +392,7 @@ h3 {
 /* Base button styles */
 .btn {
     padding: 14px 30px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-weight: 600;
     display: inline-block;
     transition: var(--transition);
@@ -358,27 +403,49 @@ h3 {
 
 /* Primary filled button */
 .btn.primary {
-    background: var(--primary);
+    background: linear-gradient(135deg, #FF6B9D, #9D5CFF);
     color: var(--white);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn.primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.btn.primary:hover::before {
+    left: 100%;
 }
 
 /* Hover effect for primary button */
 .btn.primary:hover {
-    background: rgba(226, 79, 28, 0.9);
-    transform: translateY(-3px);    /* subtle lift effect */
-    box-shadow: 0 10px 20px rgba(211, 84, 0, 0.3);
+    background: linear-gradient(135deg, #9D5CFF, #FF6B9D);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(157, 92, 255, 0.45);
 }
 
 /* Outline style button */
 .btn.outline {
     border: 2px solid var(--white);
     color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 /* Hover effect for outline button */
 .btn.outline:hover {
     background: var(--white);
-    color: var(--dark);
+    color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
 }
 
 /* Smaller button variant */
@@ -394,29 +461,85 @@ h3 {
 /* Common section spacing */
 .section {
     padding: 100px 0;
+    position: relative;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(255, 181, 213, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(212, 163, 255, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* About section grid layout */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* two-column layout */
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+}
+
+/* Animate about image on scroll */
+.about-image-wrapper {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+/* Animate about content on scroll */
+.about-grid > div:last-child {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.about-grid > div:last-child > * {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.about-grid > div:last-child > *:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.about-grid > div:last-child > *:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.about-grid > div:last-child > *:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.about-grid > div:last-child > *:nth-child(4) {
+    animation-delay: 0.8s;
 }
 
 /* Wrapper for about image */
 .about-image-wrapper {
     position: relative;
-    border-radius: 16px;
-    overflow: hidden;               /* clips child image */
+    border-radius: 24px;
+    overflow: hidden;
 }
 
 /* Main about image */
 .main-img {
-    border-radius: 12px;
+    border-radius: 24px;
     width: 100%;
     height: 500px;
-    object-fit: cover;              /* fills container without distortion */
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.about-image-wrapper:hover .main-img {
+    transform: scale(1.05);
 }
 
 /* Experience badge overlay on image */
@@ -424,12 +547,13 @@ h3 {
     position: absolute;
     bottom: 24px;
     left: 24px;
-    background: var(--primary-light);
+    background: linear-gradient(135deg, #FFB5D5, #D4A3FF);
     color: var(--dark);
     padding: 1.4rem 1.6rem;
-    border-radius: 14px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(217, 155, 73, 0.35);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
+    animation: float 4s ease-in-out infinite;
 }
 
 /* Number inside experience badge */
@@ -461,13 +585,52 @@ h3 {
 
 /* Light background section */
 .light {
-    background: var(--bg-section);
+    background: linear-gradient(135deg, 
+        rgba(255, 245, 249, 0.8) 0%, 
+        rgba(255, 238, 245, 0.9) 30%,
+        rgba(255, 229, 240, 0.8) 70%,
+        rgba(255, 240, 247, 0.9) 100%
+    );
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.light::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(255, 107, 157, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 70% 60%, rgba(157, 92, 255, 0.12) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(255, 181, 213, 0.1) 0%, transparent 20%);
+    pointer-events: none;
+    animation: float 20s ease-in-out infinite;
+}
+
+.light .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animate menu section title */
+.section-title {
+    animation: slideInBottom 0.6s ease-out;
+}
+
+.sub-heading {
+    animation: fadeIn 0.8s ease-out;
 }
 
 /* Search bar wrapper */
 .menu-search {
     max-width: 400px;
     margin: 0 auto 2.5rem;
+    animation: zoomIn 0.6s ease-out 0.3s;
+    animation-fill-mode: both;
 }
 
 /* Search input field */
@@ -475,16 +638,18 @@ h3 {
     width: 100%;
     padding: 14px 18px;
     border-radius: 50px;
-    border: 1px solid #e0e0e0;
+    border: 2px solid rgba(255, 107, 157, 0.2);
     font-size: 0.95rem;
     outline: none;
     transition: var(--transition);
+    background: var(--white);
 }
 
 /* Search input focus state */
 .menu-search input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(226, 79, 28, 0.15);
+    box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.2), 0 8px 25px rgba(157, 92, 255, 0.15);
+    transform: translateY(-2px);
 }
 
 /* =========================================================
@@ -497,31 +662,45 @@ h3 {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 4rem;
-    flex-wrap: wrap;                /* wraps buttons on small screens */
+    flex-wrap: wrap;
 }
 
 /* Individual filter button */
 .filter-btn {
     padding: 10px 24px;
-    border: 1px solid #e5e5e5;
+    border: 2px solid rgba(255, 107, 157, 0.2);
     background: var(--white);
     border-radius: 50px;
     cursor: pointer;
     transition: var(--transition);
     font-weight: 500;
+    opacity: 0;
+    animation: slideInBottom 0.5s ease-out forwards;
 }
+
+/* Stagger filter button animations */
+.filter-btn:nth-child(1) { animation-delay: 0.1s; }
+.filter-btn:nth-child(2) { animation-delay: 0.2s; }
+.filter-btn:nth-child(3) { animation-delay: 0.3s; }
+.filter-btn:nth-child(4) { animation-delay: 0.4s; }
+.filter-btn:nth-child(5) { animation-delay: 0.5s; }
+.filter-btn:nth-child(6) { animation-delay: 0.6s; }
 
 /* Hover state for filter buttons */
 .filter-btn:hover {
-    background: var(--accent-muted);
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(157, 92, 255, 0.15));
     color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
 }
 
 /* Active filter button */
 .filter-btn.active {
-    background: var(--primary);
+    background: linear-gradient(135deg, #FF6B9D, #9D5CFF);
     color: var(--white);
-    border-color: var(--primary);
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+    animation: buttonPop 0.3s ease;
 }
 
 /* =========================================================
@@ -531,10 +710,10 @@ h3 {
 /* Grid layout for menu cards */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* responsive columns */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2.5rem;
-    max-width: 1100px;            /* limits width of menu area */
-    margin: 0 auto;               /* centers grid */
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 /* =========================================================
@@ -544,13 +723,14 @@ h3 {
 /* Individual menu item card */
 .menu-card {
     background: var(--white);
-    border-radius: 16px;
-    overflow: hidden;             /* hides overflowed image on hover */
+    border-radius: 24px;
+    overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     position: relative;
-    opacity: 0;                   /* hidden initially for animation */
-    transform: translateY(30px);  /* slide-up start position */
+    opacity: 0;
+    transform: translateY(30px);
+    border: 2px solid transparent;
 }
 
 /* Card fade-in animation triggered by JS */
@@ -561,8 +741,9 @@ h3 {
 
 /* Hover lift effect */
 .menu-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(157, 92, 255, 0.25);
+    border-color: rgba(255, 107, 157, 0.3);
 }
 
 /* =========================================================
@@ -572,8 +753,21 @@ h3 {
 /* Wrapper for menu image */
 .menu-image-wrapper {
     height: 240px;
-    overflow: hidden;             /* crops zoomed image */
+    overflow: hidden;
     position: relative;
+}
+
+.menu-image-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(157, 92, 255, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.menu-card:hover .menu-image-wrapper::after {
+    opacity: 1;
 }
 
 /* Menu item image */
@@ -586,7 +780,7 @@ h3 {
 
 /* Zoom image on card hover */
 .menu-card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(2deg);
 }
 
 /* =========================================================
@@ -624,7 +818,7 @@ h3 {
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
     display: -webkit-box;
-    --webkit-line-clamp: 2;         /* limits text to 2 lines */
+    --webkit-line-clamp: 2;
     --webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -635,8 +829,8 @@ h3 {
 
 /* Footer background and spacing */
 .footer {
-    background: #181818;
-    color: #a8a8a8;
+    background: linear-gradient(135deg, #2D1B3D, #1a0f26);
+    color: #b8a8c8;
     padding: 80px 0 0;
 }
 
@@ -671,7 +865,7 @@ h3 {
 
 /* Footer bottom copyright */
 .footer-bottom {
-    border-top: 1px solid #2d3436;
+    border-top: 1px solid rgba(255, 107, 157, 0.2);
     padding: 30px 0;
     text-align: center;
     font-size: 0.9rem;
@@ -689,10 +883,11 @@ h3 {
     top: 100%;
     left: 0;
     width: 100%;
-    background: white;
+    background: rgba(255, 248, 252, 0.98);
+    backdrop-filter: blur(20px);
     padding: 2rem;
     box-shadow: var(--shadow-md);
-   box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* =========================================================
@@ -702,9 +897,10 @@ h3 {
 /* Full-screen modal overlay */
 .modal {
   position: fixed;
-  inset: 0;                       /* covers entire viewport */
-  background: rgba(0, 0, 0, 0.6);
-  display: none;                  /* hidden by default */
+  inset: 0;
+  background: rgba(45, 27, 61, 0.7);
+  backdrop-filter: blur(5px);
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 999;
@@ -716,8 +912,9 @@ h3 {
   padding: 2rem;
   width: 90%;
   max-width: 420px;
-  border-radius: 8px;
+  border-radius: 20px;
   position: relative;
+  box-shadow: 0 20px 60px rgba(157, 92, 255, 0.3);
 }
 
 /* Close button for modal */
@@ -729,6 +926,13 @@ h3 {
   background: none;
   border: none;
   cursor: pointer;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--primary);
+  transform: rotate(90deg);
 }
 
 /* Booking form layout */
@@ -743,6 +947,7 @@ h3 {
 .booking-form select {
   padding: 10px;
   border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 /* =========================================================
@@ -753,9 +958,9 @@ h3 {
 .order-modal {
   text-align: center;
   padding: 2.5rem 2rem;
-  border-radius: 12px;
+  border-radius: 20px;
   max-width: 380px;
-  animation: scaleIn 0.25s ease;   /* entry animation */
+  animation: scaleIn 0.3s ease;
 }
 
 /* Order modal heading */
@@ -791,8 +996,8 @@ h3 {
   text-align: center;
   padding: 8px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 2px solid rgba(255, 107, 157, 0.3);
+  border-radius: 10px;
 }
 
 /* Plus / minus buttons */
@@ -801,10 +1006,21 @@ h3 {
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: var(--primary);
+  background: linear-gradient(135deg, #FF6B9D, #9D5CFF);
   color: #fff;
   font-size: 18px;
   cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+.qty-btn:hover {
+  transform: scale(1.15) rotate(90deg);
+  box-shadow: 0 6px 20px rgba(157, 92, 255, 0.4);
+}
+
+.qty-btn:active {
+  transform: scale(0.95);
 }
 
 /* Utility class for full-width buttons */
@@ -825,6 +1041,121 @@ h3 {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* Float animation for playful elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pulse animation for cart badge */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Button pop animation */
+@keyframes buttonPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from top */
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from bottom */
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Zoom in animation */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Rotate in animation */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
   }
 }
 
@@ -866,7 +1197,8 @@ h3 {
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: rgba(255, 248, 252, 0.98);
+    backdrop-filter: blur(20px);
     padding: 2rem;
     box-shadow: var(--shadow-md);
     z-index: 999;

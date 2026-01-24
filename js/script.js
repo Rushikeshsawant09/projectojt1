@@ -1,4 +1,3 @@
-
 /* =========================================================
    IMPORTS
    - fetchMenuData : Fetches menu data from data source (API / JSON)
@@ -18,6 +17,9 @@ let activeCategory = "all";
 
 // Shopping cart data (persisted using localStorage)
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Store base price for dynamic price calculation
+let baseItemPrice = 0;
 
 /* =========================================================
    DOM ELEMENT REFERENCES
@@ -48,6 +50,7 @@ const closeBookTable = document.getElementById("closeBookTable");
 const orderModal = document.getElementById("orderModal");
 const closeOrder = document.getElementById("closeOrder");
 const orderItemName = document.getElementById("orderItemName");
+const orderItemPrice = document.getElementById("orderItemPrice");
 
 // Quantity controls
 const qtyInput = document.getElementById("orderQty");
@@ -216,22 +219,55 @@ closeOrder.addEventListener("click", () => {
   orderModal.style.display = "none";
 });
 
+/* =========================================================
+   DYNAMIC PRICE UPDATE FUNCTION
+   - Updates total price based on quantity
+   ========================================================= */
+function updateOrderPrice() {
+  const quantity = Number(qtyInput.value);
+  const totalPrice = baseItemPrice * quantity;
+  
+  // Add animation class
+  orderItemPrice.classList.add("price-update");
+  
+  // Update price display
+  orderItemPrice.textContent = `₹${totalPrice}`;
+  
+  // Remove animation class after animation completes
+  setTimeout(() => {
+    orderItemPrice.classList.remove("price-update");
+  }, 400);
+}
+
 // Increase quantity
 incBtn.addEventListener("click", () => {
   qtyInput.value = +qtyInput.value + 1;
+  updateOrderPrice();
 });
 
 // Decrease quantity (minimum 1)
 decBtn.addEventListener("click", () => {
   if (qtyInput.value > 1) {
     qtyInput.value = +qtyInput.value - 1;
+    updateOrderPrice();
   }
+});
+
+// Update price when manually typing quantity
+qtyInput.addEventListener("input", () => {
+  let value = Number(qtyInput.value) || 1;
+  if (value < 1) value = 1;
+  qtyInput.value = value;
+  updateOrderPrice();
 });
 
 // Open order modal when "Add to Order" button is clicked
 document.addEventListener("click", (e) => {
   const btn = e.target.closest(".add-to-order");
   if (!btn) return;
+
+  // Store base price for calculations
+  baseItemPrice = Number(btn.dataset.price);
 
   // Set selected item details
   orderItemName.textContent = btn.dataset.name;
@@ -254,7 +290,7 @@ function updateCartCount() {
 // Add selected item to cart
 addToCartBtn.addEventListener("click", () => {
   const itemName = orderItemName.textContent;
-  const itemPrice = Number(orderItemPrice.textContent.replace("₹", ""));
+  const itemPrice = baseItemPrice;
   const quantity = Number(qtyInput.value);
 
   // Check if item already exists in cart
