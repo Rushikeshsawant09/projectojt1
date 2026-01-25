@@ -317,7 +317,64 @@ addToCartBtn.addEventListener("click", () => {
 });
 
 /* =========================================================
+   INTRO POPUP MODAL
+   - Shows on page load (only once per session)
+   ========================================================= */
+function initIntroModal() {
+  const introModal = document.getElementById("introModal");
+  const closeIntro = document.getElementById("closeIntro");
+  const getStartedBtn = document.getElementById("introGetStarted");
+  
+  if (!introModal) return;
+  
+  // Check if intro was already shown in this session
+  const introShown = sessionStorage.getItem("introShown");
+  
+  // Show intro popup after 500ms (only if not shown before)
+  if (!introShown) {
+    setTimeout(() => {
+      introModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }, 500);
+  }
+  
+  // Close intro modal function
+  function closeIntroModal() {
+    introModal.classList.remove("show");
+    document.body.style.overflow = "";
+    sessionStorage.setItem("introShown", "true");
+  }
+  
+  // Close button click
+  if (closeIntro) {
+    closeIntro.addEventListener("click", closeIntroModal);
+  }
+  
+  // Get Started button click
+  if (getStartedBtn) {
+    getStartedBtn.addEventListener("click", closeIntroModal);
+  }
+  
+  // Close when clicking outside
+  introModal.addEventListener("click", (e) => {
+    if (e.target === introModal) {
+      closeIntroModal();
+    }
+  });
+  
+  // Close with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && introModal.classList.contains("show")) {
+      closeIntroModal();
+    }
+  });
+}
+
+/* =========================================================
    DOM CONTENT LOADED
    ========================================================= */
 // Initialize application once DOM is ready
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", () => {
+  init();
+  initIntroModal();
+});
